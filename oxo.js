@@ -18,6 +18,8 @@ function board() {
 		remove_box = grid_html.getElementsByClassName("case")[i]
 		remove_box.remove()
 	}
+	document.getElementById("full_grid").style.backgroundColor = "rgb(0, 0, 0,0.7)"
+	game_over = false
 	rows = Number(document.getElementById("rows_wanted").value)
     document.getElementById("full_grid").style.gridTemplateRows += "1fr 1fr 1fr"; // default is 3
 	for (var i = 0; i < rows-3; i++) {
@@ -47,7 +49,7 @@ function board() {
 		//console.log(paragraph_creation)
 		// add classes to div, a text, etc.
 		// ...
-		box_creation.title = number
+		box_creation.name = number
 		box_creation.className = "case"
 		box_creation.addEventListener("click", play)
 		box_creation.innerText = ""
@@ -68,7 +70,7 @@ function play(e) {
 		console.log(element_html)
 		alert("This case is already used. Please pick a case that isn't used.")
 	} else {
-		number = element_html.title
+		number = element_html.name
 		if (player == "x") {
 			document.getElementById('whose_turn').innerText = "X is currently playing"
 			player = "o";
