@@ -1,0 +1,79 @@
+html {
+	color: white;
+	text-align: center;
+    font-family: Verdana;
+}
+
+h1 {
+	padding: 0 0 20px 0; 
+}
+
+body {
+	height: 900px;
+	background-image: url(https://cdn.discordapp.com/attachments/587307618155102257/740202609138204732/background-pic-2.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+div {
+	text-align: center;
+}
+
+button {
+	height: 50px;
+	width: 100px;
+}
+
+.OXO {
+	width: 75%;
+	padding: 3%;
+	margin: 5% 7.5%;
+    background-color: rgb(0, 0, 0,0.7);
+}
+
+.aligned {
+	display: inline-flex;
+	width: 75%;
+}
+
+#Grid_settings {
+	margin-left: 10%;
+	width: 100%;
+}
+
+#Grid_settings div {
+	padding: 12.5%;
+}
+
+#full_grid {
+	display: grid;
+    background-color: rgb(0, 0, 0,0.7);
+    border: 2px solid gray;
+    height: 600px;
+    width: 600px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+	margin: auto;
+	justify-content: center;
+	align-items: center;
+	font: sans-serif;
+}
+
+.case {
+	display: flex;
+	font-size: 40px;
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+    border: 2px solid gray;
+	transition: background-color 0.17s ease-in-out;
+}
+
+.case:hover {
+	background-color: gray;
+}
+
+#whose_turn {
+	padding: 20px;
+}
