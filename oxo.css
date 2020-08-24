@@ -84,7 +84,7 @@ button {
 	padding: 20px;
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-device-width: 750px) {
   #full_grid {
     width: 80%;
   }
@@ -95,8 +95,11 @@ button {
 	width: 100%;
   }
   #Grid_settings {
-	margin-left: none;
+	margin-left: 0%;
   }
+  #Grid_settings div {
+	padding: 2%;
+}
   .OXO {
 	width: 100%;
 	padding: 0%;
@@ -106,7 +109,7 @@ button {
 	width: 100%;
   }
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-device-width: 500px) {
   #full_grid {
     width: 95%;
   }
