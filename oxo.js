@@ -2,7 +2,7 @@ let game_over;
 
 let rows,columns,amount_of_box_wanted,treshold_wanted;
 let column_number,row_number;
-
+let amount_of_turns_played;
 let actual_treshold = 0;
 let player = "x";
 
@@ -36,6 +36,7 @@ function board() {
     	//console.log(document.getElementById("full_grid").style.gridTemplateColumns)
 	}
 	amount_of_box_wanted = columns*rows;
+	amount_of_turns_played = 0;
 	boxes = new Array(rows)
 	for (var i = boxes.length - 1; i >= 0; i--) {
 		boxes[i] = new Array(columns)
@@ -47,8 +48,6 @@ function board() {
 		let box_creation = document.createElement('div');
 		let paragraph_creation = document.createElement('p')
 		//console.log(paragraph_creation)
-		// add classes to div, a text, etc.
-		// ...
 		box_creation.name = number
 		box_creation.className = "case"
 		box_creation.addEventListener("click", play)
@@ -64,10 +63,10 @@ function play(e) {
 		alert("The game is over, refresh to replay")
 		return
 	}
-	console.log(element_html)
+	//console.log(element_html)
 	if ((element_html.innerText !== "")&&(element_html.innerText !== undefined)) {
 		//console.log("Invalid data")
-		console.log(element_html)
+		//console.log(element_html)
 		alert("This case is already used. Please pick a case that isn't used.")
 	} else {
 		number = element_html.name
@@ -88,11 +87,11 @@ function play(e) {
 		//console.log(column_number)
 		boxes[row_number][column_number] = player; // changing on the variables
 		element_html.innerText = player // changing on the grid
-		console.log(element_html.innerText)
+		amount_of_turns_played++ // for tie check
 	 }
 	 //console.log(typeof(row_number),typeof(actual_treshold),typeof(row_number+actual_treshold))
 	 if (win_conditions()==true) {
-	 	console.log("Game over")
+	 	//console.log("Game over")
 		document.getElementById("full_grid").style.backgroundColor = "rgb(100, 0, 0,0.5)"
 		document.getElementById('whose_turn').innerText = "The game is over!"
 		game_over = true
@@ -207,6 +206,11 @@ function win_conditions() {
 				}
 			}
 		}
+	}
+	// tie
+	if (amount_of_box_wanted==amount_of_turns_played) {
+		alert("It's a tie, all boxes are occupied but nobody won!")
+		return true
 	}
 }
 
